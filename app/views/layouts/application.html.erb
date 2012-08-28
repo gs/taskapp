@@ -1,17 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Taskapp</title>
+  <title>
+    <% if content_for?(:title) %>
+      Taskapp: <%= yield :title %>
+    <% else %>
+      Taskapp
+    <% end %>
+
+  </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <%= render 'layouts/header' %>
+
+  <div class="container">
+    <section id="content">
+      <%= yield %>
+    </section>
+
+    <section id="sidebar">
+      <%= yield :sidebar %>
+
+      <section id="recent_activity">
+        <header> <h1 id="recent" class="ir">Recent Activity</h1>
+          Lista 1
+        </header>
+      </section>
+    </section>
+  </div>
+
   <hr />
-
-<%= yield %>
-
   <%= render 'layouts/footer' %>
 </body>
 </html>
