@@ -1,0 +1,12 @@
+<header id="page_header" role="banner">
+  <nav id="utility">
+  <p>You are logged in as <strong>Sam </strong>
+    <%= link_to "[Your account]", "current_user_path" %>
+    <%= link_to "[Logout]", "logout_path" %>
+  </p>
+  </nav>
+
+  <%= link_to(
+              image_tag("logo.jpeg", alt: "Tasks", id: "logo", width: 60, height: 60),
+      root_url, title: "Tasks") %>
+</header>
